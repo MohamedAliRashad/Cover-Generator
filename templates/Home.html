@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    
+    <title>Book Designer</title>
+    <style>
+            img {
+              border-radius: 8px;
+              margin-right: 270px;
+              
+            }
+            </style>
+</head>
+
+<body>
+
+    <img src={{img_path}} align="Right" height="800" width="600">
+      
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="content-section">
+                <form method="POST" action="{{url_for('Home')}}">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Cover Designer</legend>
+                        
+                        <div class="form-group">
+                            {{ form.BookTitle.label(class="form-control-label") }}
+                            {% if form.BookTitle.errors %}
+                                {{ form.BookTitle(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.BookTitle.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.BookTitle(class="form-control form-control-lg") }}
+                            {% endif%}
+                        </div>
+                     
+                        <div class="form-group">
+                            {{ form.AuthorName.label(class="form-control-label") }}
+                            {% if form.AuthorName.errors %}
+                                {{ form.AuthorName(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.AuthorName.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.AuthorName(class="form-control form-control-lg") }}
+                            {% endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.Puplisher.label(class="form-control-label") }}
+                            {% if form.Puplisher.errors %}
+                                {{ form.Puplisher(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.Puplisher.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.Puplisher(class="form-control form-control-lg") }}
+                            {% endif%}
+                        </div>
+
+                        <div class="form-group">
+                                {{ form.CoverTemplate.label(class="form-control-label") }}
+                                {% if form.CoverTemplate.errors %}
+                                    {{ form.CoverTemplate(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.CoverTemplate.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.CoverTemplate(class="form-control form-control-lg") }}
+                                {% endif%}
+                            </div>
+
+                        <div class="form-group">
+                            {{ form.BackgroundColor.label(class="form-control-label") }}
+                            {% if form.BackgroundColor.errors %}
+                                {{ form.BackgroundColor(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.BackgroundColor.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.BackgroundColor(class="form-control form-control-lg") }}
+                            {% endif%}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.PuplishingYear.label(class="form-control-label") }}
+                            {% if 0 %}
+                                {{ form.PuplishingYear(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.PuplishingYear.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.PuplishingYear(class="form-control form-control-lg") }}
+                            {% endif%}
+                        </div>
+
+                    </fieldset>
+                    <div class="form-group">
+                        {{ form.Generate(class="btn btn-outline-info")}}
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+</body>
+
+</html>
