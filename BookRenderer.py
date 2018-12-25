@@ -5,7 +5,7 @@ from wtforms_components import ColorField, SelectField
 from wtforms.validators import DataRequired, Length
 import racovimge
 import cairosvg
-import os
+
 
 Templates = ["Blocks", "Column", "Cross", "Gradient", "Rings", "Simple Dark", "Simple", "Tiles", "Window"]
 
@@ -35,6 +35,8 @@ class BookForm(FlaskForm):
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'ccc6fd2dd37ee84209c87333365aea5b3e94b94e' 
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 1
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 @app.route("/")
 # Home Directory
@@ -58,12 +60,12 @@ def Home():
                     )) 
     
             # Converting SVG To PNG           
-            cairosvg.svg2png(url=os.path.join(os.getcwd(), "static/images/Cover.svg"), write_to=os.path.join(os.getcwd(), "static/images/Cover.png"))
+            cairosvg.svg2png(url="static/images/Cover.svg", write_to="static/images/Cover.png")
 
             # Flash Message if everything finished successfully
             flash("Thank you, For using our service!", 'success')
 
-            return render_template('Home.html', form=form, img_path = os.path.join(os.getcwd(), "static/images/Cover.png"))
+            return render_template('Home.html', form=form, img_path = "static/images/Cover.png")
 
         except:
 
@@ -73,22 +75,16 @@ def Home():
     
     return render_template('Home.html', form=form, img_path = "static/images/cat_with_horns.jpg")
 
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    if 'Cache-Control' not in response.headers:
+            response.headers['Cache-Control'] = 'no-store'
+        
+    return response
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-    # with open('static/images/cover.svg', 'w') as stream:
-    #     # font sizes can be set explicitly even for random covers
-    #     stream.write(racovimge.cover(
-    #         title='Embedded',
-    #         author='Rashad',
-    #         template='Blocks',
-    #         colors=['#000000']*5,   # if you want random caolrs => ["#%06x" % random.randint(0, 0xFFFFFF)]
-    #         font='static/fonts/Gidole.ttf',
-    #         font_size=120,                          # Used for the title of the book.
-    #         font_size_author=70                     # Used for the authors.
-    #         )) 
-
-    # # Converting SVG To PNG           
-    # cairosvg.svg2png(url="static/images/cover.svg", write_to="static/images/cover.png")
+    

@@ -26,7 +26,7 @@
     cy="800"
     r="800" />
   <circle
-    fill="black"
+    fill="#dc1515"
     cx="600"
     cy="800"
     r="700" />
@@ -41,7 +41,7 @@
     cy="800"
     r="500" />
   <circle
-    fill="black"
+    fill="#dc1515"
     cx="600"
     cy="800"
     r="400" />
@@ -69,7 +69,7 @@
   <text
     y="1500"
     style="font-size:70px;font-weight:bold;fill:#00305a;">
-    <tspan font-family="Gidole" text-anchor="middle" x="600" dx="0" dy="-70">Arm</tspan>
+    <tspan font-family="Gidole" text-anchor="middle" x="600" dx="0" dy="-70">ARM</tspan>
     <tspan font-family="Gidole" text-anchor="middle" x="600" dx="0" dy="-70">Rashad</tspan>
   </text>
 </svg>
