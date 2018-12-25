@@ -75,15 +75,6 @@ def Home():
     
     return render_template('Home.html', form=form, img_path = "static/images/cat_with_horns.jpg")
 
-@app.after_request
-def add_header(response):
-    # response.cache_control.no_store = True
-    if 'Cache-Control' not in response.headers:
-            response.headers['Cache-Control'] = 'no-store'
-        
-    return response
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,57 +10,12 @@
     ]]>
     </style>
   </defs>
-  <circle
-    fill="#829fe4"
-    cx="600"
-    cy="800"
-    r="1000" />
-  <circle
-    fill="#4878a4"
-    cx="600"
-    cy="800"
-    r="900" />
-  <circle
-    fill="#6692c3"
-    cx="600"
-    cy="800"
-    r="800" />
-  <circle
-    fill="#dc1515"
-    cx="600"
-    cy="800"
-    r="700" />
-  <circle
-    fill="#829fe4"
-    cx="600"
-    cy="800"
-    r="600" />
-  <circle
-    fill="#6692c3"
-    cx="600"
-    cy="800"
-    r="500" />
-  <circle
-    fill="#dc1515"
-    cx="600"
-    cy="800"
-    r="400" />
-  <circle
-    fill="#829fe4"
-    cx="600"
-    cy="800"
-    r="300" />
-  <circle
-    fill="#6692c3"
-    cx="600"
-    cy="800"
-    r="200" />
-  <circle
-    fill="#4878a4"
-    cx="600"
-    cy="800"
-    r="100" />
-  
+  <rect
+    style="fill:black;"
+    width="1200"
+    height="1600"
+    x="0"
+    y="0" />
   <text
     y="200"
     style="font-size:120px;font-weight:bold;fill:#00305a;">
