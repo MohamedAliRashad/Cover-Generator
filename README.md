@@ -4,7 +4,7 @@ Web Page for Cover Generation
 # Installation 
 Clone The Project
 
-``` git clone ```
+``` git clone https://github.com/MohamedAliRashad/Cover-Generator.git ```
 
 Insttalling The Requirments
 
