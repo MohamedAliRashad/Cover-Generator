@@ -1,12 +1,13 @@
-# Cover-Generator
-Web Page for Cover Generation 
+## Cover-Generator
+Web Page in Flask for Cover Generation 
 
-# Installation 
+## Installation
+
 Clone The Project
 
 ``` git clone https://github.com/MohamedAliRashad/Cover-Generator.git ```
 
-Insttalling The Requirments
+Install the Dependencies 
 
 ``` pip3 install -r requirments.txt ```
 
@@ -17,7 +18,7 @@ cd racovimge
 pip3 install .
 ```
 
-# Testing
+## Testing
 The Start Cover **Cute isn't it**
 ![all text](https://github.com/MohamedAliRashad/Cover-Generator/blob/master/static/images/cat_with_horns.jpg)
 
